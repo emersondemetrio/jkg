@@ -10,7 +10,10 @@ const disaInput = () => input.setAttribute('disabled', 'disabled');
 const enableInput = () => input.removeAttribute('disabled');
 const resetInput = () => input.value = '';
 
-const disableStart = () => document.getElementById('start').setAttribute('disabled', 'disabled');
+const disableStart = () => document
+	.getElementById('start')
+	.setAttribute('disabled', 'disabled');
+
 const timer = document.getElementById('timer');
 const table = document.getElementById('table');
 
@@ -62,7 +65,6 @@ const stopTimer = hasWin => {
 	clearInterval(timerInterval);
 };
 
-
 const decreaseTime = () => {
 	from = from - 1;
 	const date = new Date(null);
@@ -81,7 +83,7 @@ const startTimer = () => {
 	timerInterval = setInterval(decreaseTime, 1000);
 };
 
-const start = () => {
+const startGame = () => {
 	startTimer();
 	enableInput();
 	input.focus();
@@ -113,4 +115,4 @@ document
 
 document
 	.getElementById('start')
-	.addEventListener('click', () => start());
+	.addEventListener('click', () => startGame());
