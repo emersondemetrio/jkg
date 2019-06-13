@@ -62,9 +62,10 @@ const stopTimer = hasWin => {
 	clearInterval(timerInterval);
 };
 
-const date = new Date(null);
+
 const decreaseTime = () => {
 	from = from - 1;
+	const date = new Date(null);
 	date.setSeconds(from);
 	timer.innerHTML = date.toISOString().substr(11, 8);
 
