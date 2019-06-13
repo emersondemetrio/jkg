@@ -27,9 +27,9 @@ const updateView = () => {
 
 	keyWords.forEach((k,
 		index) => {
-		content += `<td style="width: 100px; height: 40px">${getMatches(k)}</td>`;
+		content += `<td style="min-width: 100px; width: 100px; height: 40px">${getMatches(k)}</td>`;
 		control++;
-		if (control > 10) {
+		if (control > 8) {
 			control = 0;
 			content += '</tr>';
 			if (index + 1 < keyWords.length) {
