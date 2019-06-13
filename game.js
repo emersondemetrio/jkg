@@ -2,7 +2,10 @@ let matches = [];
 
 const playerHasWin = () => matches.length === keyWords.length;
 const showYouWin = () => document.getElementById('youwin').classList = 'show alert-success';
-const showYouLose = () => document.getElementById('youlose').classList = 'show alert-danger';
+const showYouLose = () => {
+	document.getElementById('youlose').classList = 'show alert-danger'
+	document.getElementById('footer').classList = 'show'
+};
 const showTryAgain = () => document.getElementById('tryagain').classList = 'btn btn-primary';
 
 const input = document.getElementById('input');
@@ -25,8 +28,7 @@ const updateView = () => {
 	let content = '<tr>';
 	let control = 0;
 
-	keyWords.forEach((k,
-		index) => {
+	keyWords.forEach((k, index) => {
 		content += `<td style="min-width: 100px; width: 100px; height: 40px">${getMatches(k)}</td>`;
 		control++;
 		if (control > 8) {
