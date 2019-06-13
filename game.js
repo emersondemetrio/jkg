@@ -73,7 +73,7 @@ const decreaseTime = () => {
 		disaInput();
 		showTryAgain();
 		stopTimer(false);
-		from = 60;
+		from = 5 * 60;
 	}
 };
 
