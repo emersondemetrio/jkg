@@ -5,6 +5,13 @@ const showYouWin = () => document.getElementById('youwin').classList = 'show ale
 const showYouLose = () => document.getElementById('youlose').classList = 'show alert-danger';
 const showTryAgain = () => document.getElementById('tryagain').classList = 'btn btn-primary';
 
+const input = document.getElementById('input');
+const disaInput = () => input.setAttribute('disabled', 'disabled');
+const enableInput = () => input.removeAttribute('disabled');
+const resetInput = () => input.value = '';
+
+const disableStart = () => document.getElementById('start').setAttribute('disabled', 'disabled');
+const timer = document.getElementById('timer');
 const table = document.getElementById('table');
 
 const getMatches = c => {
@@ -38,15 +45,9 @@ const isAMach = word => {
 		matches.push(word);
 		return true;
 	}
+
 	return false;
 };
-
-const input = document.getElementById('input');
-const disaInput = () => input.setAttribute('disabled', 'disabled');
-const disableStart = () => document.getElementById('start').setAttribute('disabled', 'disabled');
-const enableInput = () => input.removeAttribute('disabled');
-const resetInput = () => input.value = '';
-const timer = document.getElementById('timer');
 
 const informMatches = () => {
 	const d = document.getElementById('matches');
@@ -61,13 +62,11 @@ const stopTimer = hasWin => {
 	clearInterval(timerInterval);
 };
 
+const date = new Date(null);
 const decreaseTime = () => {
 	from = from - 1;
-	const date = new Date(null);
 	date.setSeconds(from);
-	var timeString = date.toISOString().substr(11, 8);
-
-	timer.innerHTML = timeString;
+	timer.innerHTML = date.toISOString().substr(11, 8);
 
 	if (from === 0) {
 		disaInput();
